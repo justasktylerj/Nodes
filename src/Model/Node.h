@@ -19,6 +19,7 @@ public:
 	Node(Type value);
 	virtual ~Node();
 	Type getValue();
+	void setValue
 	Node * getPointers();
 };
 
