@@ -7,7 +7,8 @@
 
 #include "Node.h"
 #include <iostream>
-//using namespace std;
+using namespace std;
+
 template <class Type>
 Node<Type>::Node()
 {
@@ -19,17 +20,23 @@ template <class Type>
 Node<Type>:: Node(Type value)
 {
 	this->value = value;
-	pointers = nullptr
+	pointers = nullptr;
 }
 
 template <class Type>
-Node<Type> :: getValue()
+Node<Type>::~Node()
+{
+
+}
+
+template <class Type>
+Type Node<Type> :: getValue()
 {
 	return this->value;
 }
 
 template <class Type>
-Node * Node<Type> :: getPointers
+Node<Type> * Node<Type> :: getPointers()
 {
 	return this->pointers;
 }

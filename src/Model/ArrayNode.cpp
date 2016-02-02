@@ -6,12 +6,12 @@
  */
 
 #include "ArrayNode.h"
+#include <iostream>
 
 template<class Type>
 ArrayNode<Type>::ArrayNode() : Node<Type>()
 {
-
-this->next = nullptr;
+   this->next = nullptr;
 }
 
 template<class Type>
@@ -25,12 +25,21 @@ template<class Type>
 ArrayNode<Type>::ArrayNode(Type value, ArrayNode * next) : Node<Type>(value)
 {
 	this->value = value;
-		this->next = nullptr;
+	this->next = next;
 }
 
 template<class Type>
-ArrayNode<Type>::~ArrayNode() : Node<Type>()
+ArrayNode<Type>::~ArrayNode()
 {
 
+}
+
+template <class Type>
+void ArrayNode<Type> :: setNext
+
+template <class Type>
+void ArrayNode * ArrayNode<Type> :: getNext()
+{
+	return this->next;
 }
 
