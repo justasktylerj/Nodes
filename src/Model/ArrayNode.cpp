@@ -6,7 +6,6 @@
  */
 
 #include "ArrayNode.h"
-#include <iostream>
 
 template<class Type>
 ArrayNode<Type>::ArrayNode() : Node<Type>()
@@ -35,10 +34,13 @@ ArrayNode<Type>::~ArrayNode()
 }
 
 template <class Type>
-void ArrayNode<Type> :: setNext
+void ArrayNode<Type> :: setNext(ArrayNode<Type> * next)
+{
+	this->next = next;
+}
 
 template <class Type>
-void ArrayNode * ArrayNode<Type> :: getNext()
+ArrayNode<Type> * ArrayNode<Type> :: getNext()
 {
 	return this->next;
 }
