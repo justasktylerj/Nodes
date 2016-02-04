@@ -18,6 +18,22 @@ CTECArray<Type>::CTECArray(int size)
 		cerr << "impossible!" << endl;
 		return;
 	}
+
+	for (int index = 0; index < size; index++)
+	{
+		if(head != nullptr)
+		{
+			ArrayNode<Type> nextNode;
+			nextNode.setNext(head);
+			head = &nextNode;
+		}
+		else
+		{
+			//this is the first node in an array
+			ArrayNode<Type> first;
+			head = &first;
+		}
+	}
 }
 
 template <class Type>
