@@ -10,7 +10,14 @@ using namespace std;
 template <class Type>
 CTECArray<Type>::CTECArray(int size)
 {
+	this->size = size;
+	head = nullptr;
 
+	if(size <= 0)
+	{
+		cerr << "impossible!" << endl;
+		return;
+	}
 }
 
 template <class Type>
@@ -30,6 +37,7 @@ Type* CTECArray<Type>:: get(int position)
 {
 	if(position >= size || position < 0)
 		{
+		    cerr << "don't do that!" << endl;
 			return nullptr;
 		}
 	else
@@ -60,7 +68,18 @@ void CTECArray<Type>:: set(int position, Type value)
 	}
 	else
 	{
-
+		ArrayNode<Type> * current = head;
+		for (int spot = 0; spot <= position; spot++)
+		{
+			if(spot != position)
+				{
+					current = current->getNext();
+				}
+				else
+				{
+					return current->getValue();
+				}
+		}
 	}
 }
 
