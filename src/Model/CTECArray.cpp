@@ -82,7 +82,8 @@ Type* CTECArray<Type>:: get(int position)
 			}
 			else
 			{
-				return current->getValue();
+				Type temp = current->getValue();
+				return &temp;
 			}
 		}
 	}
@@ -93,7 +94,7 @@ void CTECArray<Type>:: set(int position, Type value)
 {
 	if(position >= size ||position < 0)
 	{
-		cerr << "don't do that!" << endl;
+		cerr << "error" << endl;
 	}
 	else
 	{
@@ -106,7 +107,7 @@ void CTECArray<Type>:: set(int position, Type value)
 				}
 				else
 				{
-					return current->getValue();
+					current->setValue(value);
 				}
 		}
 	}
