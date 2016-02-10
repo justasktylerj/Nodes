@@ -11,27 +11,24 @@ template <class Type>
 CTECArray<Type>::CTECArray(int size)
 {
 	this->size = size;
-	head = nullptr;
+	this->head = nullptr;
 
-	if(size <= 0)
-	{
-		cerr << "impossible!" << endl;
-		return;
-	}
+	assert(size > 0);
+
 
 	for (int index = 0; index < size; index++)
 	{
 		if(head != nullptr)
 		{
-			ArrayNode<Type> nextNode;
+			ArrayNode<Type> * nextNode = new ArrayNode<Type>();
 			nextNode.setNext(head);
 			head = &nextNode;
 		}
 		else
 		{
 			//this is the first node in an array
-			ArrayNode<Type> first;
-			head = &first;
+			ArrayNode<Type> * first = new ArrayNode<Type>();
+			head = first;
 		}
 	}
 }
@@ -45,9 +42,7 @@ CTECArray<Type>::~CTECArray()
 		if(deleteMe->getNext() != nullptr)
 		{
 			head= deleteMe->getNext();
-			deleteMe->setNext(nullptr);
 			delete deleteMe->getNext();
-			deleteMe = head;
 		}
 		delete deleteMe->getNext();
 		deleteMe = head;
@@ -64,17 +59,7 @@ int CTECArray<Type>::getSize()
 template <class Type>
 Type* CTECArray<Type>:: get(int position)
 {
-	if(position >= size || position < 0)
-		{
-		    cerr << "don't do that!" << endl;
-			return nullptr;
-		}
-	else
-	{
-		ArrayNode<Type> * current = head;
-		//inclusive because i am inside the bounds guarenteed
-		for(int spot = 0; spot <= position; spot++)
-		{
+	assert(position < size && position >= 0);
 
 			if(spot != position)
 			{
@@ -92,12 +77,8 @@ Type* CTECArray<Type>:: get(int position)
 template <class Type>
 void CTECArray<Type>:: set(int position, Type value)
 {
-	if(position >= size ||position < 0)
-	{
-		cerr << "error" << endl;
-	}
-	else
-	{
+	assert(position < size && position >= 0);
+
 		ArrayNode<Type> * current = head;
 		for (int spot = 0; spot <= position; spot++)
 		{
