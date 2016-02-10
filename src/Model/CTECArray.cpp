@@ -22,11 +22,10 @@ CTECArray<Type>::CTECArray(int size)
 		{
 			ArrayNode<Type> * nextNode = new ArrayNode<Type>();
 			nextNode.setNext(head);
-			head = &nextNode;
+			head = nextNode;
 		}
 		else
 		{
-			//this is the first node in an array
 			ArrayNode<Type> * first = new ArrayNode<Type>();
 			head = first;
 		}
@@ -37,12 +36,12 @@ template <class Type>
 CTECArray<Type>::~CTECArray()
 {
 	ArrayNode<Type> * deleteMe = head;
-	for(int index =0; index < size; index++)
+	for(int index = 0; index < size; index++)
 	{
 		if(deleteMe->getNext() != nullptr)
 		{
-			head= deleteMe->getNext();
-			delete deleteMe->getNext();
+			head = deleteMe->getNext();
+			deleteMe->setNext(nullptr);
 		}
 		delete deleteMe->getNext();
 		deleteMe = head;
@@ -57,41 +56,42 @@ int CTECArray<Type>::getSize()
 }
 
 template <class Type>
-Type* CTECArray<Type>:: get(int position)
+Type CTECArray<Type>:: get(int position)
 {
 	assert(position < size && position >= 0);
 
+	ArrayNode<Type> * current = head;
+	for(int spot = 0; spot <= position; spot++)
+	{
 			if(spot != position)
 			{
 				current = current->getNext();
 			}
 			else
 			{
-				Type temp = current->getValue();
-				return &temp;
+				return current->getValue();
 			}
-		}
 	}
 }
 
 template <class Type>
-void CTECArray<Type>:: set(int position, Type value)
+void CTECArray<Type>:: set(int position, const Type& value)
 {
 	assert(position < size && position >= 0);
 
 		ArrayNode<Type> * current = head;
 		for (int spot = 0; spot <= position; spot++)
 		{
-			if(spot != position)
-				{
-					current = current->getNext();
-				}
-				else
-				{
-					current->setValue(value);
-				}
+				if (spot != position)
+			{
+				current = current->getNext();
+			}
+			else
+			{
+				current->setValue(value);
+			}
 		}
-	}
 }
+
 
 
