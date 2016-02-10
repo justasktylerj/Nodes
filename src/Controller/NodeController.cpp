@@ -18,7 +18,7 @@ NodeController::~NodeController()
 
 void NodeController :: start()
 {
-	for(int index = 0; index < notHipsterInts->getSize(); index++)
+	for(int index = 0; index < myIntArray->getSize(); index++)
 	{
 		myIntArray->set(index, (2* index));
 	}

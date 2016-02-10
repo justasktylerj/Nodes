@@ -5,6 +5,7 @@
  *      Author: tjar2074
  */
 #include "CTECArray.h"
+#include <assert.h>
 using namespace std;
 
 template <class Type>
@@ -20,14 +21,15 @@ CTECArray<Type>::CTECArray(int size)
 	{
 		if(head != nullptr)
 		{
-			ArrayNode<Type> * nextNode = new ArrayNode<Type>();
-			nextNode.setNext(head);
+			ArrayNode<Type> * nextNode = new ArrayNode<Type>;
+			nextNode->setNext(head);
 			head = nextNode;
 		}
 		else
 		{
-			ArrayNode<Type> * first = new ArrayNode<Type>();
+			ArrayNode<Type> * first = new ArrayNode<Type>;
 			head = first;
+
 		}
 	}
 }
@@ -61,6 +63,7 @@ Type CTECArray<Type>:: get(int position)
 	assert(position < size && position >= 0);
 
 	ArrayNode<Type> * current = head;
+
 	for(int spot = 0; spot <= position; spot++)
 	{
 			if(spot != position)
