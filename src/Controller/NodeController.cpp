@@ -18,6 +18,8 @@ NodeController::~NodeController()
 
 void NodeController :: start()
 {
+	arrayTimer.startTimer();
+
 	for(int index = 0; index < myIntArray->getSize(); index++)
 	{
 		myIntArray->set(index, (2* index));
@@ -27,5 +29,8 @@ void NodeController :: start()
 	{
 		cout << "not hipster ints at index" << index << "contains" << myIntArray->get(index) << endl;
 	}
+
+	arrayTimer.stopTimer();
+	arrayTimer.displayTimerInformation();
 }
 
