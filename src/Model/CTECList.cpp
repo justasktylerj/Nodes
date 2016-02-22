@@ -11,7 +11,9 @@ using namespace std;
 template <class Type>
 CTECList<Type>::CTECList()
 {
-
+this->size = 0;
+this->head = nullptr;
+this->end = nullptr;
 }
 
 template <class Type>
@@ -65,7 +67,10 @@ Type CTECList<Type>::getFromIndex(int index)
 template <class Type>
 Type CTECList<Type>::removeFromFront()
 {
+	ArrayNode<Type> * newHead = new ArrayNode<Type>();
+	newHead = head->getNext();
 
+	delete this->head;
 }
 
 template <class Type>
