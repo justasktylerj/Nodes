@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>380</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>controller
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>390</x>
+      <y>0</y>
+      <w>890</w>
+      <h>540</h>
+    </coordinates>
+    <panel_attributes>model
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>30</y>
+      <w>360</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Controller::NodeController
+--
+CTECArray
+ArrayNode
+Node
+--
+ArrayTimer
+start():void
+NodeController():virtual
+NodeController
+myIntArray&lt;int&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>200</y>
+      <w>360</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Controller::NodeRunner
+--
+NodeController
+--
+Main()&lt;int&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>30</y>
+      <w>480</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Model::CTECArray&lt;type&gt;
+--
+ArrayNode
+--
+size&lt;int&gt;
+ArrayNode&lt;type&gt;
+CTECArray&lt;int size&gt;
+CTECArray():virual
+getSize&lt;type&gt;
+set(int position, const Type&amp; value):void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>190</y>
+      <w>480</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Model::Node&lt;type&gt;
+--
+value&lt;type&gt;
+pointers(node)
+Node()
+Node():virual
+getValue&lt;type&gt;
+setValue&lt;type&gt;
+getPointer(node)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>340</y>
+      <w>480</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Model::ArrayNode&lt;type&gt;
+--
+Node
+--
+ArrayNode(next)
+ArrayNode()
+ArrayNode(type value)
+ArrayNode:Virtual
+Array(getNext)
+setNext(arrayNode):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>890</x>
+      <y>30</y>
+      <w>380</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>Model::CTECList
+--
+-size : int
+- head : ArrayNode&lt;Type&gt;
+- end : ArrayNode&lt;Type&gt;
+--
++CTECList(): constructor
++ ~CTECList(): destructor
++ getSize():int
++addToFront(Type value): void
++addToEnd(Type vlaue) : void
+AddAtIndex(int index, Type value): void
+getEnd(): type
+getFront(): type
+getFromIndex(int index):Type
+removeFromEnd() : Type
+removeFromFront() : Type
+removeFromIndex() : Type
+Set(front, end, index)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
