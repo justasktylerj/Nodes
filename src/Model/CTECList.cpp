@@ -94,6 +94,11 @@ Type CTECList<Type>::removeFromEnd()
 template <class Type>
 Type CTECList<Type>::removeFromIndex(int index)
 {
+	Type returnValue;
+
+		assert(size > 0);
+		assert(index >= 0);
+		assert(index < size);
 
 }
 
