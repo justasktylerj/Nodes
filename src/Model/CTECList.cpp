@@ -61,7 +61,11 @@ Type CTECList<Type>::getEnd()
 template <class Type>
 Type CTECList<Type>::getFromIndex(int index)
 {
+	Type returnValue;
 
+			assert(size > 0);
+			assert(index >= 0);
+			assert(index < size);
 }
 
 template <class Type>
@@ -81,25 +85,87 @@ Type CTECList<Type>::removeFromFront()
 	//move to next spot
 	this->head = newHead;
 
+	this->calculateSize();
+
 	return returnValue;
+
+}
+
+template <class Type>
+void CTECList<Type>::calculateSize()
+{
+	assert(size > 0);
+
+	ArrayNode<Type> * counterPointer = head;
+	int count = 0;
+	if (counterPointer == nullptr)
+	{
+		this->size = 0;
+		return;
+	}
+	else
+	{
+		count++;
+		while (counterPointer->getNext() != nullptr)
+			{
+				counterPointer = counterPointer->getNext();
+				count++;
+
+			}
+
+		this->size = count;
+	}
 
 }
 
 template <class Type>
 Type CTECList<Type>::removeFromEnd()
 {
+//loop over size
+	//or
+	while(getNext()->getNext() == nullptr)
+	{
 
+	}
+	//before return the varible call
+
+	Type valueToRemove;
+
+	this->calculateSize();
+	return valueToRemove;
 }
 
 template <class Type>
 Type CTECList<Type>::removeFromIndex(int index)
 {
-	Type returnValue;
 
-		assert(size > 0);
-		assert(index >= 0);
-		assert(index < size);
+	assert(this->size > 0);
 
+	assert(index >= 0 && index < size);
+
+	Type thingToRemove;
+
+	ArrayNode<Type> * previous, deleteMe, newNext;
+
+	if(index == 0)
+	{
+		thingToRemove = removeFromFront();
+	}
+		else if(index == size-1)
+	{
+		thingToRemove = removeFromFront();
+	}
+	else
+	{
+		for(int spot = 0; spot < index + 1; spot++)
+		{
+
+		}
+
+	}
+
+	this->calculateSize();
+	return thingToRemove;
 }
 
 template <class Type>
