@@ -121,19 +121,35 @@ void CTECList<Type>::calculateSize()
 template <class Type>
 Type CTECList<Type>::removeFromEnd()
 {
+
+	assert(size > 0);
 	Type valueToRemove;
 
-	ArrayNode<Type> * currentNode;
-	currentNode = head;
-//	ArrayNode<Type> * temp ptr;
-	while(currentNode->getNext()->getNext() != nullptr)
+	if(size == 1)
 	{
-		currentNode = currentNode->getNext();
+		valueToRemove = removeFromFront();
+		end = nullptr;
+		calculateSize();
+		return valueToRemove();
 	}
-//assign value from ptr
-	valueToRemove = currentNode->getNext();
-	currentNode->setNext()->nullptr;
-	delete currentNode->getNext();
+	else
+	{
+		ArrayNode<Type> * currentNode = head;
+		for(int spot = 0; spot < size-1; spot++)
+		{
+			currentNode = currentNode->getNext();
+		}
+
+//		ArrayNode<Type> * pointer = head;
+//		while(pointer->getNext()->getNext() != nullptr)
+//		{
+//			pointer = pointer->getNext();
+//		}
+
+		valueToRemove = currentNode->getNext()->getValue();
+		end = currentNode;
+		delete currentNode->getNext();
+	}
 
 	this->calculateSize();
 	return valueToRemove;
