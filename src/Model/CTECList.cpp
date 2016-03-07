@@ -72,7 +72,7 @@ template <class Type>
 Type CTECList<Type>::removeFromFront()
 {
 	Type returnValue;
-
+//takes the first spot, deletes it.
 	assert(size > 0);
 	//find the next spot
 	ArrayNode<Type> * newHead = new ArrayNode<Type>();
@@ -94,6 +94,7 @@ Type CTECList<Type>::removeFromFront()
 template <class Type>
 void CTECList<Type>::calculateSize()
 {
+	//finds out how big it is, because C++ doesn't automatically do that.
 	assert(size > 0);
 
 	ArrayNode<Type> * counterPointer = head;
@@ -121,7 +122,7 @@ void CTECList<Type>::calculateSize()
 template <class Type>
 Type CTECList<Type>::removeFromEnd()
 {
-
+//finds the end if the node and deletes it
 	assert(size > 0);
 	Type valueToRemove;
 
