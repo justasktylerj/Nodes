@@ -27,7 +27,7 @@ void NodeController :: start()
 
 	for(int index = 0; index < myIntArray->getSize(); index++)
 	{
-		cout << "not hipster ints at index" << index << "contains" << myIntArray->get(index) << endl;
+		cout << "not hipster ints at index " << index << " contains " << myIntArray->get(index) << endl;
 	}
 
 	arrayTimer.stopTimer();
