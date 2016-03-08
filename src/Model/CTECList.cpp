@@ -92,8 +92,8 @@ Type CTECList<Type>::getFront()
 	Type returnValue;
 
 	assert(size > 0);
-	int spot = 0;
-	ArrayNode<Type> * currentNode = head;
+
+	ArrayNode<Type> * currentNode = ArrayNode<Type>[0];
 	head = currentNode;
 	returnValue = this->head->getValue();
 
@@ -104,14 +104,14 @@ template <class Type>
 Type CTECList<Type>::getEnd()
 {
 	    assert(size > 0);
-		Type valueToRemove;
+		Type valueToEnd;
 
 		if(size == 1)
 		{
-			valueToRemove = removeFromFront();
+			valueToEnd = head();
 			end = nullptr;
 
-			return valueToRemove();
+			return valueToEnd();
 		}
 		else
 		{
@@ -121,16 +121,12 @@ Type CTECList<Type>::getEnd()
 				currentNode = currentNode->getNext();
 			}
 
-			valueToRemove = currentNode->getNext()->getValue();
-			end = currentNode;
-			delete currentNode->getNext();
+			valueToEnd = currentNode->getNext()->getValue();
+			end = currentNode->getNext();
+
 		}
-
-		this->calculateSize();
-		return valueToRemove;
-	}
-
-	return end;
+		valueToEnd = end;
+		return valueToEnd;
 }
 
 template <class Type>
