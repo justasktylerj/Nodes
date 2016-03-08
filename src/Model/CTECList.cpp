@@ -89,8 +89,15 @@ void CTECList<Type>::AddAtIndex(int index, Type value)
 template <class Type>
 Type CTECList<Type>::getFront()
 {
-	return head;
+	Type returnValue;
 
+	assert(size > 0);
+	int spot = 0;
+	ArrayNode<Type> * currentNode = head;
+	head = currentNode;
+	returnValue = this->head->getValue();
+
+	return returnValue;
 }
 
 template <class Type>
