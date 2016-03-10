@@ -23,7 +23,7 @@ public:
 	~CTECList();
 	int getSize();
 	void addToFront(const Type& value);
-	void addToEnd(Type value);
+	void addToEnd(const Type& value);
 	void AddAtIndex(int index, Type value);
 	Type getFront();
 	Type getEnd();

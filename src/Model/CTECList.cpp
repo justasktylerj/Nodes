@@ -70,16 +70,15 @@ void CTECList<Type>::addToFront(const Type& value)
 }
 
 template <class Type>
-void CTECList<Type>::addToEnd(Type value)
+void CTECList<Type>::addToEnd(const Type& value)
 {
 	assert(size >= 0);
 
-	ArrayNode<Type> newNode = new ArrayNode<Type>;
-	value = newNode->setValue();
-	this->head = newNode->setNext();
-	newNode = this->head;
-	head = newNode;
-	size++;
+	ArrayNode<Type> * newNode = new ArrayNode<Type>(value);
+	end->setNext(newNode);
+	end = newNode;
+
+	calculateSize();
 }
 
 template <class Type>
