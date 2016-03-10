@@ -16,10 +16,40 @@ CTECList<Type>::CTECList()
 	this->end = nullptr;
 }
 
+/*
+ * 1. start at head
+ * 2. Iterate over nodes
+ * 3. Update position
+ * 4. delete final
+ * 5. reset size
+ */
 template <class Type>
 CTECList<Type>::~CTECList()
 {
+	ArrayNode<Type> current = head;
 
+	for (int deleteCount = 0; deleteCount < size; deleteCount++)
+	{
+		ArrayNode<Type> * temp = current;
+
+		current = current->getNext();
+		head = current;
+		delete temp;
+	}
+
+//	while (current->getNext() != nullptr)
+//	{
+//		ArrayNode<Type> * temp = current;
+//
+//		current = current->getNext();
+//		head = current;
+//		delete temp;
+//	}
+
+	delete head;
+	head = nullptr;
+	end = nullptr;
+	size = 0;
 }
 
 template <class Type>
@@ -29,18 +59,14 @@ int CTECList<Type>::getSize()
 }
 
 template <class Type>
-void CTECList<Type>::addToFront(Type value)
+void CTECList<Type>::addToFront(const Type& value)
 {
 	assert(size >= 0);
 
-	ArrayNode<Type> newNode = new ArrayNode<Type>;
-	value = newNode->setValue();
-	newNode = this->end->setNext();
-	newNode = this->end;
-	end = newNode();
-	nullptr = newNode->setNext();
-	size++;
-	this->calculateSize;
+	ArrayNode<Type> * newNode = new ArrayNode<Type>(value, head);
+	head = newNode;
+
+	calculateSize();
 }
 
 template <class Type>

@@ -11,10 +11,11 @@
 #include <iostream>
 #include<string>
 
-#include "../Model/Node.cpp"
-#include "../Model/ArrayNode.cpp"
-#include "../Model/CTECArray.cpp"
+#include "../Model/Node.h"
+#include "../Model/ArrayNode.h"
+#include "../Model/CTECArray.h"
 #include "../Model/Timer.h"
+#include "../Model/CTECList.h"
 
 using namespace std;
 
@@ -22,11 +23,14 @@ class NodeController
 {
 private:
 	CTECArray<int> * myIntArray;
+	CTECList<int> * numbers;
 	Timer arrayTimer;
+	void testLists();
 public:
 	NodeController();
 	virtual ~NodeController();
 	void start();
+
 
 };
 

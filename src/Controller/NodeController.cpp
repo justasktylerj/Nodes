@@ -16,9 +16,17 @@ NodeController::~NodeController()
 
 }
 
+void NodeController :: testLists()
+{
+	 numbers->addToFront(3);
+	 numbers->addToEnd(8);
+	 cout << "end should be 8 and is " << numbers->getEnd() << endl;
+}
 void NodeController :: start()
 {
-	arrayTimer.startTimer();
+	testLists();
+
+;	arrayTimer.startTimer();
 
 	for(int index = 0; index < myIntArray->getSize(); index++)
 	{
